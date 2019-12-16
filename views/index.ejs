@@ -46,17 +46,17 @@
   <% } else { %>
 
   <!-- Looping through clucks to make a card for each cluck -->
-  <% for (let cluck of clucks) { %>
+  <% for (let j = clucks.length - 1; j >= 0; j--) { %>
     <div class="card mb-3">
         <div class="card-body">
       <div class="w-25">
-        <img src="<%= cluck.avatar %>" class="img-thumbnail rounded float-left w-25 m-1" alt="avatar">
+        <img src="<%= clucks[j].avatar %>" class="img-thumbnail rounded float-left w-25 m-1" alt="avatar">
       </div>
       <h6 class="card-title w-50 m-1">
-        <%= cluck.username %> • <%= timeSince(cluck.createdAt) %> ago</h6>
-      <p class="card-text"><%= cluck.content %></p>
-      <% if (cluck.image_url !== '') { %>
-      <img src="<%= cluck.image_url %>" alt="image_url" class="w-75">
+        <%= clucks[j].username %> • <%= timeSince(clucks[j].createdAt) %></h6>
+      <p class="card-text"><%= clucks[j].content %></p>
+      <% if (clucks[j].image_url !== '') { %>
+      <img src="<%= clucks[j].image_url %>" alt="image_url" class="w-75">
       <% } %>
     </div>
   </div>
@@ -69,13 +69,13 @@
   <% const now = new Date(); %>
   <% secondsPast = (now.getTime() - timeStamp.getTime()) / 1000; %>
   <% if(secondsPast < 60){ %>
-  <% return parseInt(secondsPast) + 's'; %>
+  <% return 'Just now'; %>
   <% } %>
   <% if(secondsPast < 3600){ %>
-  <% return parseInt(secondsPast/60) + 'm'; %>
+  <% return parseInt(secondsPast/60) + 'm ago'; %>
   <% } %>
   <% if(secondsPast <= 86400){ %>
-  <% return parseInt(secondsPast/3600) + 'h'; %>
+  <% return parseInt(secondsPast/3600) + 'h ago'; %>
   <% } %>
   <% if(secondsPast > 86400){ %>
   <% day = timeStamp.getDate(); %>

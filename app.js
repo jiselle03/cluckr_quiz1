@@ -2,7 +2,6 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-const methodOverride = require('method-override');
 const app = express();
 
 // Import routes
@@ -25,14 +24,6 @@ app.use((req, res, next) => {
     res.locals.avatarUrl = avatar || 'https://i.ibb.co/L834bmW/cluckr.png';
     next();
 });
-app.use(methodOverride((req, res) => {
-  if (req.body && req.body._method) {
-    const method = req.body._method;
-     delete req.body._method;
-    return method;
-  }
-})
-);
 
 // Route Middleware
 app.use('/', indexRouter);
