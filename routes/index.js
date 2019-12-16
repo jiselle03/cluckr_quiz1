@@ -7,6 +7,7 @@ const ONE_DAY = new Date(Date.now() + 1000 * 60 * 60 * 24)
 router.get('/', (req, res) => {
     queries.getAll(req.params.id, {
         username: req.cookies.username,
+        avatar: req.cookies.avatar,
         content: req.body.content,
         image_url: req.body.image_url
     }).then(clucks => {
@@ -30,6 +31,7 @@ router.post('/sign_in', (req, res) => {
 // Sign Out route
 router.post('/sign_out', (req, res) => {
     res.clearCookie('username');
+    res.clearCookie('avatar');
     res.redirect('/');
 })
 

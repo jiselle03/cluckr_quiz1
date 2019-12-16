@@ -18,6 +18,7 @@ router.get("/new", (req, res) => {
 router.post("/", (req, res) => {
   queries.add({
     username: req.cookies.username,
+    avatar: req.cookies.avatar,
     content: req.body.content,
     image_url: req.body.image_url
   }).then(cluck => {

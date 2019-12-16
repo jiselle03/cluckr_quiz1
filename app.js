@@ -22,7 +22,7 @@ app.use((req, res, next) => {
     const username = req.cookies.username;
     const avatar = req.cookies.avatar;
     res.locals.signInUser = username || '';
-    res.locals.avatarUrl = avatar || 'https://ibb.co/mG3Q1kw';
+    res.locals.avatarUrl = avatar || 'https://i.ibb.co/L834bmW/cluckr.png';
     next();
 });
 app.use(methodOverride((req, res) => {

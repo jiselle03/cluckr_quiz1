@@ -4,6 +4,7 @@
 <div id=”content-desktop” class="content-desktop">
   <div class="trending-container m-1">
 
+   <% if (clucks.length !== 0) { %>
       <div class="card" style="width: 18rem;">
           <h4 class="card-title">Trending Clucks</h4>
           <ul class="list-group list-group-flush">
@@ -11,12 +12,6 @@
               <% let trends = {}; %>  
               <!-- Looping through each cluck entry -->
               <% for (let i = 0; i < clucks.length; i++) { %>
-                <!-- If none exist -->
-                <% if (clucks.length === 0) { %>
-                <li class="list-group-item">No trending clucks - start a trend today!</li>
-          </ul>
-                <!-- If there are clucks -->
-                <% } else { %>
                 <% const cluck = clucks[i].content.split(' ').join(',').split('\r\n').join(',').split(','); %>
                 
                   <!-- Looping through each word in cluck content -->
@@ -33,7 +28,6 @@
                   <% } %>
                 <% } %>
                 <% } %>
-                <% } %>
                 
                 <!-- Print object contents in trends -->
                 <% const trendArr = Object.entries(trends); %>
@@ -44,6 +38,7 @@
       </div>
   </div>
 </div>
+<% } %>
 
 <div class="clucks-container m-1">
   <% if (clucks.length === 0) { %>
@@ -55,7 +50,7 @@
     <div class="card mb-3">
         <div class="card-body">
       <div class="w-25">
-        <img src="<%= avatarUrl %>" class="img-thumbnail rounded float-left w-25 m-1" alt="avatar">
+        <img src="<%= cluck.avatar %>" class="img-thumbnail rounded float-left w-25 m-1" alt="avatar">
       </div>
       <h6 class="card-title w-50 m-1">
         <%= cluck.username %> • <%= timeSince(cluck.createdAt) %> ago</h6>
