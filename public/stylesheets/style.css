@@ -1,0 +1,15 @@
+.content-desktop {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .content-desktop {display: block;}
+  .big-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .main-containter {
+    flex: 1;
+  }
+}
