@@ -21,7 +21,7 @@
                         <%= console.log(word) %>
                       <!-- If word isn't in trends object yet -->
                       <% if (trends[word]) { %>
-                        <% trends[trend] += 1 %>
+                        <% trends[word] += 1 %>
                       <% } else { %>
                         <% trends[word] = 1 %>
                       <% } %>

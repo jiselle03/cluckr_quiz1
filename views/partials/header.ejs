@@ -24,17 +24,17 @@
       <a class="btn btn-secondary" href="/clucks/new" role="button">Cluck!</a>
   </li>
     <% if (signInUser && signInUser !== 'undefined') { %>
-      <li class="nav-item">
+      <li class="nav-item m-1">
       <div class="nav-item nav-link"><%= signInUser %></div>
       </li>
 
-      <li class="nav-item">
+      <li class="nav-item m-1">
       <form action="/sign_out" method="POST">
         <input class="btn btn-secondary" type="submit" value="Sign Out">
       </form>
       </li>
     <% } else { %>
-      <li class="nav-item">
+      <li class="nav-item m-1">
       <a class="btn btn-secondary" href="/sign_in" role="button">Sign In</a>
       </li>
     <% } %>
