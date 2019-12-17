@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const queries = require("../db/queries");
+const utils = require('../utils');
 
 const ONE_DAY = new Date(Date.now() + 1000 * 60 * 60 * 24)
 
@@ -11,7 +12,7 @@ router.get('/', (req, res) => {
         content: req.body.content,
         image_url: req.body.image_url
     }).then(clucks => {
-        res.render('index', { clucks });
+        res.render('index', { clucks, utils });
       });
 });
 

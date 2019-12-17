@@ -1,12 +1,13 @@
 const express = require("express");
 const router = express.Router();
+const utils = require('../utils')
 
 const queries = require("../db/queries");
 
 // List All
 router.get("/", (req, res) => {
     queries.getAll().then(clucks => {
-      res.render('index', { clucks });
+      res.render('index', { clucks, utils });
     });
   });
 
