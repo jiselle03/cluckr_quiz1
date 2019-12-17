@@ -5,6 +5,7 @@ const utils = {
         let trends = {};
         // Looping through each cluck entry
         for (let i = 0; i < clucks.length; i++) {
+            console.log(clucks[i])
         const cluck = clucks[i].content.split(' ').join(',').split('\r\n').join(',').split('.').join(',').split('!').join(',').split('?').join(',').split(',');
         
             //Looping through each word in cluck content 
