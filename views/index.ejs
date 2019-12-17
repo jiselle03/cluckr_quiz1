@@ -30,7 +30,9 @@
                 <% } %>
                 
                 <!-- Print object contents in trends -->
+                
                 <% const trendArr = Object.entries(trends); %>
+                <% trendArr.sort((a, b) => b[1]-a[1]); %>
                 <% for (let item of trendArr) { %>
                   <li class="list-group-item"><%= item[0] %> • <%= item[1] %></li>
                 <% } %>
