@@ -20,10 +20,12 @@
   <a class="navbar-brand" href="/">
     <img src="/images/cluckr.png" width="50" height="50" alt="Cluckr">
   </a>
-  <li class="nav-item ml-auto justify-content-end m-1">
-      <a class="btn btn-secondary" href="/clucks/new" role="button">Cluck!</a>
-  </li>
+    <li class="nav-item ml-auto justify-content-end m-1">
     <% if (signInUser && signInUser !== 'undefined') { %>
+
+      <!-- Link to add new clucks will only show if user is signed in -->
+          <a class="btn btn-secondary" href="/clucks/new" role="button">Cluck!</a>
+      </li>
       <li class="nav-item m-1">
       <div class="nav-item nav-link"><%= signInUser %></div>
       </li>
@@ -34,6 +36,7 @@
       </form>
       </li>
     <% } else { %>
+      <li class="nav-item m-1"><em>Sign in to cluck!</em></li>
       <li class="nav-item m-1">
       <a class="btn btn-secondary" href="/sign_in" role="button">Sign In</a>
       </li>
