@@ -1,0 +1,60 @@
+<%- include('./partials/header') %>
+
+<div class="big-container">
+  <div id=”content-desktop” class="content-desktop">
+    <div class="trending-container m-1">
+
+      <!-- If hashtags/trends exist, list them in descending order of occurrences -->
+      <% if (clucks.length !== 0) { %>
+      <div class="card" style="width: 18rem;">
+
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <h4 class="card-title m-3">Trending Clucks</h4>
+          </li>
+          <pre class="list-group-item pre"><%= utils.trends(clucks) %> </pre>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <% } %>
+
+  <div class="clucks-container m-1">
+    <!-- If no clucks have been posted -->
+    <% if (clucks.length === 0) { %>
+    <h3>Post your first Cluck today!</h3>
+
+    <!-- If clucks have been posted -->
+    <% } else { %>
+
+    <!-- Looping through clucks to make a card for each cluck -->
+    <% for (let k = clucks.length - 1; k >= 0; k--) { %>
+
+    <div class="card mb-3">
+      <div class="card-body">
+
+        <!-- User avatar (or default avatar if not provided) -->
+        <div class="w-25">
+          <img src="<%= clucks[k].avatar %>" class="img-thumbnail rounded float-left w-25 m-1" alt="avatar">
+        </div>
+
+        <!-- Username and relative time of post -->
+        <h6 class="card-title w-50 m-1">
+          <%= clucks[k].username %> • <%= utils.timeSince(clucks[k].createdAt) %></h6>
+
+        <!-- Content and/or image -->
+        <p class="card-text"><%= clucks[k].content %></p>
+        <% if (clucks[k].image_url !== '') { %>
+        <img src="<%= clucks[k].image_url %>" alt="image_url" class="w-75">
+        <% } %>
+      </div>
+    </div>
+    <% }%>
+
+    <% }%>
+
+  </div>
+</div>
+
+
+<%- include('./partials/footer') %>
